@@ -1,0 +1,28 @@
+img {
+    width: 100px;
+    height: 150px;
+}
+.basicInfo {
+    display: flex;
+}
+.basicInfo div {
+    padding: 0px 0px 0px 10px;
+}
+.description {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+a,a:visited{
+    color: white;
+    text-decoration: none !important;
+}
+button {
+    margin-top: -10px;
+    float: right;
+    background: #1976d2;
+}
+
+mat-spinner {
+   margin: 0 auto;
+}

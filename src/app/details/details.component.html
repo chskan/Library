@@ -1,0 +1,22 @@
+<mat-spinner *ngIf="isLoading;else done"></mat-spinner>
+
+<ng-template #done>
+    <h2 mat-dialog-title>{{book?.volumeInfo.title}}</h2>
+    <mat-dialog-content>
+        <div class="basicInfo">
+            <img src="{{book?.volumeInfo.imageLinks?.thumbnail}}" alt="">
+            <div>
+                <p><b>{{messages.authorName}}:</b> {{book?.volumeInfo.authors}}</p>
+                <p><b>{{messages.publisher}}:</b> {{book?.volumeInfo.publisher}}</p>
+                <p><b>{{messages.published}}:</b> {{book?.volumeInfo.publishedDate}}</p>
+            </div>
+        </div>
+        <button mat-button><a href="{{book?.accessInfo.webReaderLink}}">Read</a></button>
+        <p>
+            <b>Description:</b>
+            <br>
+            {{book?.volumeInfo.description}}
+        </p>
+
+    </mat-dialog-content>
+</ng-template>

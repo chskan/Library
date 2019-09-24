@@ -1,0 +1,19 @@
+<div class="toolbar">
+    <i class="material-icons">library_books</i>
+    <span> Library </span>
+</div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput #bookName placeholder="{{messages?.searchabook}}">
+    </mat-form-field>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <Adz-results [bookName]="bookName.value"></Adz-results>
+
+</div>

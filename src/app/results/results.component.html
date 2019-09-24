@@ -1,0 +1,29 @@
+<form class="form">
+    <mat-form-field>
+        <input matInput [(ngModel)]="author" (keyup)="filter()" name="author" placeholder="{{messages.author}}">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>{{messages.category}}</mat-label>
+        <mat-select [(ngModel)]="category" name="category" (selectionChange)="filter()">
+            <mat-option value="all">{{messages.all}}</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat">
+                {{cat}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="reset()">{{messages.reset}}</button>
+
+</form>
+
+<mat-spinner *ngIf="isLoading;else done"></mat-spinner>
+<ng-template #done>
+    <div class="card-container" *ngFor="let book of displayedBooks" (click)="openDetails(book.id)">
+        <div class="card card-small">
+            <img src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="">
+
+            <div class="desc">{{book.volumeInfo.title}}</div>
+        </div>
+    </div>
+    <div *ngIf="isEmpty">{{messages.noresults}}</div>
+</ng-template>
